@@ -1,5 +1,5 @@
 pipeline {
-    agent { label 'neeha' }
+    agent { label 'Neeha' }
  tools{
   maven 'm3'
  }
