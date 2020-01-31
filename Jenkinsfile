@@ -24,7 +24,7 @@ pipeline {
             steps {
                 echo 'Sonar Scanner'
           withSonarQubeEnv('sonar') {
-                sh 'mvn clean install -Dsonar:sonar -Dsonar.host.http://34.69.20.65:9000'
+                sh 'mvn sonar:sonar -Dsonar.login=admin -Dsonar.password=admin123 -Dsonar.host.http://34.69.20.65:9000'
           }
           }
         }
