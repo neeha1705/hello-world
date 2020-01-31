@@ -1,11 +1,14 @@
 pipeline {
-    agent { label 'gcp' }
+    agent { label 'neeha' }
  tools{
   maven 'm3'
  }
     stages {
         stage('build') {
-            steps {
+         tools{
+             maven 'm3'
+               }
+         steps {
                 echo 'Clean Build'
                 sh 'mvn clean compile'
             }
@@ -26,7 +29,7 @@ pipeline {
             steps {
                 echo 'Sonar Scanner'
           withSonarQubeEnv('sonar') {
-                sh 'mvn clean install  -D sonar.host.http://34.73.118.29:9000'
+                sh 'mvn clean install -Dsonar:sonar -Dsonar.host.http://34.69.20.65:9000'
           }
           }
         }
